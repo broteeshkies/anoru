@@ -6,3 +6,4 @@ envs/
 assets
 files
 tmp
+__*

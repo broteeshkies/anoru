@@ -4,6 +4,9 @@ import { config as dotenvConfig } from 'dotenv';
 import { z } from 'zod';
 
 dotenvConfig();
+dotenvConfig({
+  path: '~/.anoru',
+});
 
 const configSchema = z.object({
   openaiApiKey: z.string({
