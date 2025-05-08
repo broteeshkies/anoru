@@ -25,8 +25,9 @@ const config = configSchema.parse({
 export const maxVideos = 20;
 export const { openaiApiKey, elevenlabsApiKey } = config;
 
-export const assetsDir = resolve(process.cwd(), 'assets');
-export const tmpDir = resolve(process.cwd(), 'tmp');
+const __dirname = new URL('.', import.meta.url).pathname;
+export const assetsDir = resolve(__dirname, '../assets');
+export const tmpDir = resolve(__dirname, '../tmp');
 export const ttsDir = resolve(tmpDir, 'tts');
 export const recordingsDir = resolve(tmpDir, 'recordings');
 
