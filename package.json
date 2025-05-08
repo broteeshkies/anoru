@@ -1,6 +1,6 @@
 {
   "name": "anoru",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "type": "module",
   "description": "Anoru - is an AWESOME CLI AI assistant for you. Ask me anything in telegram @anoru",
   "dependencies": {
@@ -30,7 +30,7 @@
     "dev": "                 npm run dev:tsx",
     "dev:node": "            node --experimental-strip-types --watch --watch-path=./src src/index.ts",
     "dev:tsx": "             tsx watch --include \"./src/*\" src/index.ts",
-    "test" : "               echo ok",         
+    "test": "               echo ok",
     "release": "             npm run build && npm test && npm version patch && npm publish"
   },
   "bin": {
