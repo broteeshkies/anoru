@@ -1,0 +1,70 @@
+{
+  "name": "anoru",
+  "version": "1.0.2",
+  "type": "module",
+  "description": "Anoru - is an AWESOME CLI AI assistant for you. Ask me anything in telegram @anoru",
+  "dependencies": {
+    "@lsk4/algos": "^4.24.0",
+    "@lsk4/env": "^4.6.0",
+    "@lsk4/err": "^4.26.0",
+    "@lsk4/log": "^4.28.0",
+    "@types/play-sound": "^1.1.2",
+    "axios": "^1.9.0",
+    "chalk": "^5.4.1",
+    "dotenv": "^16.5.0",
+    "fishbird": "^1.1.8",
+    "mic": "^2.1.2",
+    "node-vad": "^1.1.4",
+    "openai": "^4.97.0",
+    "ora": "^8.2.0",
+    "play-sound": "^1.1.6",
+    "zod": "^3.24.3"
+  },
+  "scripts": {
+    "start": "               npm run start:lib",
+    "build": "               tsc",
+    "start:dev": "           npm run start:tsx",
+    "start:lib": "           node lib",
+    "start:node": "          node --experimental-strip-types src/index.ts",
+    "start:tsx": "           tsx src/index.ts",
+    "dev": "                 npm run dev:tsx",
+    "dev:node": "            node --experimental-strip-types --watch --watch-path=./src src/index.ts",
+    "dev:tsx": "             tsx watch --include \"./src/*\" src/index.ts",
+    "test" : "               echo ok",         
+    "release": "             npm run build && npm test && npm version patch && npm publish"
+  },
+  "bin": {
+    "anoru": "./lib/cli.js"
+  },
+  "files": [
+    "lib/**/*",
+    "assets/**/*",
+    "package.json",
+    "README.md"
+  ],
+  "devDependencies": {
+    "@lsk4/eslint-config": "^4.10.1",
+    "@lsk4/tsconfig": "^4.27.0",
+    "@types/node": "^22.14.1",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3"
+  },
+  "prettier": "@lsk4/eslint-config/prettier",
+  "eslintConfig": {
+    "settings": {
+      "import/resolver": {
+        "typescript": {
+          "project": [
+            "tsconfig.json"
+          ]
+        }
+      }
+    },
+    "extends": "@lsk4/eslint-config",
+    "rules": {
+      "no-await-in-loop": "off"
+    }
+  }
+}

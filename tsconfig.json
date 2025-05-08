@@ -1,0 +1,6 @@
+{
+  "extends": "@lsk4/tsconfig",
+  "compilerOptions": {
+    "outDir": "lib",
+  }
+}
