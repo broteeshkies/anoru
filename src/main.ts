@@ -49,6 +49,7 @@ export async function main() {
       filename: hasNoEnvsFilename,
       role: 'assistant',
     });
+    await printAds();
     process.exit(0);
     return;
   }
@@ -61,7 +62,6 @@ export async function main() {
         role: 'assistant',
       });
       await printAds();
-
       process.exit(0);
       return;
     }
