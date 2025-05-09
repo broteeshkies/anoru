@@ -1,6 +1,6 @@
 {
   "name": "anoru",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "type": "module",
   "description": "Anoru - is an AWESOME CLI AI assistant for you. Ask me anything in telegram @anoru",
   "dependencies": {
