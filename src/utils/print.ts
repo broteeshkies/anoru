@@ -3,22 +3,20 @@ import chalk from 'chalk';
 
 import { anoruName, youName } from '../config.js';
 
-const maxNameLength = youName.length > anoruName.length ? youName.length : anoruName.length;
+const max = (arr: number[]): number => arr.reduce((a, b) => Math.max(a, b), 0);
+const maxNameLength = max([youName, anoruName, '1234567890'].map((i) => i.length));
 
-/**
- * Prints a user message with appropriate formatting
- * @param message The message to print
- */
-export function printYou(message: string): void {
-  const paddedName = youName.padStart(maxNameLength);
-  console.log(chalk.blue(`${paddedName}:`), message);
-}
+export const printName = (name: string, offset: number = 0): string => {
+  const paddedName = name.padStart(maxNameLength + offset);
+  return paddedName;
+};
 
-/**
- * Prints an Anoru message with appropriate formatting
- * @param message The message to print
- */
-export function printAnoru(message: string): void {
-  const paddedName = anoruName.padStart(maxNameLength);
-  console.log(chalk.green(`${paddedName}:`), message);
+export const printRole = (role: 'user' | 'assistant', offset: number = 0): string => {
+  const name = role === 'user' ? youName : anoruName;
+  const color = role === 'user' ? chalk.blue : chalk.green;
+  return color(`${printName(name, offset)}:`);
+};
+
+export function print(message: string, role: 'user' | 'assistant'): void {
+  console.log(printRole(role), message);
 }

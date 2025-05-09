@@ -1,6 +1,6 @@
 import Logger from '@lsk4/log';
 
-import { openai } from '../clients/openaiClient.js';
+import { createChatCompletion } from '../clients/openaiClient.js';
 import { isDebug, systemPrompt } from '../config.js';
 import { chat } from './chat.js';
 
@@ -14,15 +14,8 @@ export async function completion(): Promise<string> {
     role: 'user' | 'assistant' | 'system';
     content: string;
   }[];
-  const props = {
-    model: 'gpt-3.5-turbo',
-    temperature: 0.7,
-    max_tokens: 100,
-    messages,
-  };
 
-  log.trace('Completion props:', props);
-  const res = await openai.chat.completions.create(props);
-
+  log.trace('Completion props:', messages);
+  const res = await createChatCompletion(messages);
   return res.choices[0].message.content || '';
 }

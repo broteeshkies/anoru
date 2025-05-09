@@ -64,7 +64,8 @@
     },
     "extends": "@lsk4/eslint-config",
     "rules": {
-      "no-await-in-loop": "off"
+      "no-await-in-loop": "off",
+      "no-promise-executor-return": "off"
     }
   }
 }

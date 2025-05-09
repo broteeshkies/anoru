@@ -1,4 +1,5 @@
 import Logger from '@lsk4/log';
+import chalk from 'chalk';
 import fs from 'fs';
 import mic from 'mic';
 import Vad from 'node-vad';
@@ -6,6 +7,7 @@ import ora from 'ora';
 
 import { isDebug } from '../../config.js';
 import { playFinishRecording, playStartRecording } from '../play.js';
+import { printName } from '../print.js';
 import { getRecordingFilename } from './getRecordingFilename.js';
 
 const log = new Logger({
@@ -126,7 +128,7 @@ export async function recording(options: RecordOptions = {}): Promise<string> {
   });
 
   const loading = ora({
-    text: 'speak:',
+    text: chalk.yellow(printName('speak:', -1)),
     color: 'yellow',
     spinner: 'dots',
   }).start();
