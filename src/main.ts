@@ -1,6 +1,9 @@
 import 'dotenv/config';
 
+import terminalImage from 'terminal-image';
+
 import {
+  brosImage,
   byeWorldFilename,
   byeWorldPhrase,
   hasNoEnvsFilename,
@@ -26,6 +29,11 @@ function isNeedReply() {
 function isNeedAsk() {
   return chat.messages.length === 0 || chat.messages[chat.messages.length - 1].role === 'assistant';
 }
+async function printAds() {
+  console.log(await terminalImage.file(brosImage));
+  console.log('https://t.me/broschat');
+  console.log('https://t.me/brospoiler');
+}
 
 export async function main() {
   await playFinishRecording();
@@ -34,7 +42,6 @@ export async function main() {
     filename: helloWorldFilename,
     role: 'assistant',
   });
-
   if (!checkEnvs()) {
     await playFinishRecording();
     await speak({
@@ -45,7 +52,6 @@ export async function main() {
     process.exit(0);
     return;
   }
-
   while (true) {
     if (!isContinue()) {
       await playFinishRecording();
@@ -54,6 +60,8 @@ export async function main() {
         filename: byeWorldFilename,
         role: 'assistant',
       });
+      await printAds();
+
       process.exit(0);
       return;
     }

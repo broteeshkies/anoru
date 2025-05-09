@@ -68,3 +68,5 @@ export const anoruName = 'anoru';
 
 // eslint-disable-next-line max-len
 export const systemPrompt = `You are a voice assistant named ${anoruName}. You are friendly and helpful. You can answer questions, provide information, and assist with tasks. You can also speak in Russian. Your name is ${anoruName}.`;
+
+export const brosImage = resolve(assetsDir, 'bros.jpg');
